@@ -13,7 +13,8 @@ gym: 0.8.0
 import numpy as np
 import pandas as pd
 import tensorflow as tf
-
+#import tensorflow.compat.v1 as tf
+#tf.disable_v2_behavior()
 
 # Deep Q Network off-policy
 class DeepQNetwork:
@@ -116,6 +117,10 @@ class DeepQNetwork:
 
         # replace the old memory with new memory
         index = self.memory_counter % self.memory_size
+        #print("index:")
+        #print(index)
+        #print("transition:")
+        #print(transition)
         self.memory[index, :] = transition
 
         self.memory_counter += 1
@@ -205,4 +210,9 @@ class DeepQNetwork:
         plt.show()
 
 
-
+    def plot_error(self, errors):
+        import matplotlib.pyplot as plt
+        plt.plot(np.arange(len(errors)), errors)
+        plt.ylabel('Error')
+        plt.xlabel('training steps')
+        plt.show()

@@ -17,7 +17,8 @@ import tensorflow as tf
 # reproducible
 np.random.seed(1)
 tf.set_random_seed(1)
-
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 class PolicyGradient:
     def __init__(

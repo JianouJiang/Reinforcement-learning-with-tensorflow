@@ -78,6 +78,7 @@ def rl():
     # main part of RL loop
     q_table = build_q_table(N_STATES, ACTIONS)
     for episode in range(MAX_EPISODES):
+        print(q_table)
         step_counter = 0
         S = 0
         is_terminated = False
@@ -87,12 +88,13 @@ def rl():
             A = choose_action(S, q_table)
             S_, R = get_env_feedback(S, A)  # take action & get next state and reward
             q_predict = q_table.loc[S, A]
+            print(" q_predict: "+str(q_predict))
             if S_ != 'terminal':
                 q_target = R + GAMMA * q_table.iloc[S_, :].max()   # next state is not terminal
             else:
                 q_target = R     # next state is terminal
                 is_terminated = True    # terminate this episode
-
+            print(" q_target: "+str(q_target))
             q_table.loc[S, A] += ALPHA * (q_target - q_predict)  # update
             S = S_  # move to next state
 
