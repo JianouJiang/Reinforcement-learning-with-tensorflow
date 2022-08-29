@@ -131,7 +131,10 @@ class DeepQNetwork:
 
         if np.random.uniform() < self.epsilon:
             # forward feed the observation and get q value for every actions
+            #print({self.s: observation})
             actions_value = self.sess.run(self.q_eval, feed_dict={self.s: observation})
+            #print("actions_value:")
+            #print(actions_value)
             action = np.argmax(actions_value)
         else:
             action = np.random.randint(0, self.n_actions)
@@ -214,5 +217,12 @@ class DeepQNetwork:
         import matplotlib.pyplot as plt
         plt.plot(np.arange(len(errors)), errors)
         plt.ylabel('Error')
+        plt.xlabel('training steps')
+        plt.show()
+
+    def plot_positions(self, xs):
+        import matplotlib.pyplot as plt
+        plt.plot(np.arange(len(xs)), xs)
+        plt.ylabel('Position (x)')
         plt.xlabel('training steps')
         plt.show()
