@@ -79,7 +79,7 @@ for i_episode in range(100):
             r1=-1
             rewards -=rewards
             
-        elif error<2.5:
+        elif error<3.5:
             r1=r1*10
         #r2 = 1/(stdev_rewards+1)
         reward =  r1 #+  r3 #'''* env.weight_of_r1''' * env.weight_of_r3 #+ env.weight_of_r2 * r2      

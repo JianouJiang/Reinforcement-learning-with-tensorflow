@@ -65,7 +65,7 @@ def not_steady_state(T_pred):
     
 # Heat diffusion equation with periodic B.C and Dirichlet temperatures from sensors    
 def get_T_pred_MultiSensors(observations_): 
-    
+    print(observations_)
     # get the range of x coorindate, x is also the index of the coordinate
     x_min, x_max = 0, len(T_actual)#getXRange() 
     avg_T = sum(T_actual)/len(T_actual)

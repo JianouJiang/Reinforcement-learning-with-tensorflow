@@ -341,7 +341,7 @@ class DeepQNetwork:
             xis = xs[i]
             for j in range(len(xs[0])):
                 xi = xis[j]
-                plt.plot(np.arange(len(xi)), xi, label="x"+str(i)+str(j))
+                plt.plot(np.arange(len(xi)), xi, label="x"+str(i))
            
         #plt.plot(np.arange(len(xs)), xs, label="x_avg")
         plt.legend()
