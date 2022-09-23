@@ -51,7 +51,7 @@ xs = [ [] for i in range(nb_agents)] # put positions of x in
 
 x=0
 
-for i_episode in range(100):
+for i_episode in range(500):
     
     agents = env.reset()
     
